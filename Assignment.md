@@ -2,7 +2,7 @@
 - Ajit G C, amk1005944@student.hamk.fi
 
 # Task
-- How to create a virtual machine to used Azure Platform for Linux Management Course.
+How to create a virtual machine to used Azure Platform for Linux Management Course.
 
 - Step 1: At first, I create a Azure account from portal.azure.com for myself using my university email. 
 - Step 2: For getting more credit in Azure, I used my university email to get free Azure credits.
