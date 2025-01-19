@@ -28,10 +28,3 @@ After creating the virtual machine, I go to lab-robotics-ip and select setting(C
 
 - Step 14: I open the terminal and paste the URL given in SSH to VM with specified private key.
 ![Successfully done in Termina ](image/terminal.jpg)
-
-
-
-
-
-
-
