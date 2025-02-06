@@ -33,69 +33,114 @@ After creating the virtual machine, I go to lab-robotics-ip and select setting(C
 
 
 
-# Assignment 3
+# Assignment 3  
+**Date:** 2025-01-31  
+**Author:** Ajit G C (amk1005944@student.hamk.fi)  
 
-# 2025-01-31
-- Ajit G C, amk1005944@student.hamk.fi
+---
 
+## Task: User Management and File System Access in Linux  
 
+### 1. Creating Users  
 
-# Task 
-- User Management and File System access in Linux
+- **Creating a new user:**  
+  I created a new user named `tupu` using the command:  
+  ```bash
+  sudo adduser tupu
+  ```  
+  - This command:  
+    - Creates the user `tupu`.  
+    - Automatically creates the home directory `/home/tupu`.  
+    - Sets the default shell to `/bin/bash`.  
+    - Prompts for password creation and additional user details.
 
-1. Creating Users
-- I created a new user named tupu using the command `sudo adduser tupu`
-- This will Create a new user tupu Automatically create the home directory /home/tupu. Set the default shell to /bin/bash and Prompt for password creation and additional user details.
+- **Creating another user (`lupu`) with custom options:**  
+  To create the user `lupu`, I used the following command:  
+  ```bash
+  sudo useradd -m -d /home/lupu -s /bin/bash -G supu supu
+  ```  
+  - This command:  
+    - Creates the user `supu`.  
+    - Sets the home directory to `/home/supu`.  
+    - Assigns the default shell `/bin/bash`.  
+    - Adds `supu` to the `supu` group.  
 
-- Tupu (Using) To create the user lupu, use the following command:
+- **Setting a password for `supu`:**  
+  ```bash
+  sudo passwd supu
+  ```
 
-    `sudo useradd -m -d /home/lupu -s /bin/bash -G supu supu`
-This will:
-. Create the user supu
-. Set the home directory to /home/supu
-. Assign the default shell /bin/bash
-. Add supu to the supu group
-- Set a password for supu using the following command:
-`sudo passwd supu`
+---
 
-2. Granting Sudo Privilege Method 1: Using (Recommended) Edit the sudoers file safely:
+### 2. Granting Sudo Privileges  
 
-- I used the command `sudo visudo` to edit the sudoers file safely.
-- I added the following line to the end of the file:
-`tupu ALL=(ALL:ALL) ALL`
-`lupu ALL=(ALL:ALL) ALL `
+#### **Method 1: Editing the `sudoers` file (Recommended)**  
 
-- Save and exit.
+- I used the command:  
+  ```bash
+  sudo visudo
+  ```  
+  - Added the following lines to the end of the file:  
+    ```
+    tupu ALL=(ALL:ALL) ALL
+    lupu ALL=(ALL:ALL) ALL
+    ```  
+  - Saved and exited the file.
 
-- Method 2: Adding Users to the Group Alternatively, run:
-`sudo usermod -aG sudo supu`
-`sudo usermod -aG sudo tupu`
+#### **Method 2: Adding Users to the `sudo` Group**  
 
-- Verify with:
-    `groups supu`
-   ` groups tupu`
+- I used the following commands to add users to the `sudo` group:  
+  ```bash
+  sudo usermod -aG sudo supu
+  sudo usermod -aG sudo tupu
+  ```  
 
-3. Setting Up Shared directory 
-- Step 1: Create the directory
+- **Verifying group membership:**  
+  ```bash
+  groups supu
+  groups tupu
+  ```
 
-- I used the command `sudo mkdir /opt/projekti` to create a new directory /home/shared
-- Step 2: Assign a Group
-`sudo usermod -aG projekti supu` 
-`sudo usermod -aG projekti tupu` 
+---
 
-- Step 3: Change the ownership of the directory
+### 3. Setting Up a Shared Directory  
 
-- I used the command ` sudo chown :projekti /opt/projekti`
-- Step 4: Set Permissions
-`sudo chmod 770 /opt/projekti`
+#### **Step 1: Create the directory**  
+I created a new directory `/opt/projekti` using the command:  
+```bash
+sudo mkdir /opt/projekti
+```  
 
-- Output: 
-The output of the `ls -ld /opt/projekti` command should look like this:
-`drwxrws--- 2 root projekti 4096 Jan 30 21:53 /opt/projekti `
+#### **Step 2: Assign a group to the directory**  
+```bash
+sudo usermod -aG projekti supu
+sudo usermod -aG projekti tupu
+```  
 
+#### **Step 3: Change ownership of the directory**  
+```bash
+sudo chown :projekti /opt/projekti
+```  
 
-# Screenshot of the project
-![SS](image/1.png)
-![SS](image/2.png)
-![SS](image/3.png)
-![SS](image/4.png)
+#### **Step 4: Set permissions for the directory**  
+```bash
+sudo chmod 770 /opt/projekti
+```  
+
+- **Output of the `ls -ld /opt/projekti` command:**  
+  ```
+  drwxrws--- 2 root projekti 4096 Jan 30 21:53 /opt/projekti
+  ```
+
+---
+
+## Screenshots of the Project  
+![Screenshot 1](image/1.png)  
+
+![Screenshot 2](image/2.png)  
+
+![Screenshot 3](image/3.png)  
+
+![Screenshot 4](image/4.png)  
+
+---
