@@ -1,33 +1,80 @@
-# 2025-01-19
-- Ajit G C, amk1005944@student.hamk.fi
+# Task: Create a Virtual Machine on Azure Platform for Linux Management Course
 
-# Task
-How to create a virtual machine to used Azure Platform for Linux Management Course.
+**Date:** 2025-01-19  
+**Author:** Ajit G C (amk1005944@student.hamk.fi)  
 
-- Step 1: At first, I create a Azure account from portal.azure.com for myself using my university email. 
-- Step 2: For getting more credit in Azure, I used my university email to get free Azure credits.
+---
 
-![Azure View after login ](image/available%20credit.png)
+## Steps to Create a Virtual Machine
 
-- Step 3: I created a new resource group in Azure portal.
-- Step 4: I created a new virtual machine in Azure portal. ( It may take some time to load)
-- Step 5: I selected North Europe as a Region and Ubuntu Server 24.04 LTS - x64 Gen2 as the operating system. 
-- Step 6: I selected the virtual machine size as Standard_B2ls_v2- 2 vCPUs, 4 GiB Memory ($33.29/month).
-- Step 7: I selected the network configuration as Public IP address and Network interface and created a new Username.
-- Step 8: I seleceted OS disk type as Standard SSD and Storage type as Locally-redundant storage.
-- Step 9: I selected the public IP address as Static and created a new public IP address as lab-robotics-ip.
-- Step 10: I selected inbound ports as (Http(80), HTTPS(443), SSH(22))
-- Step 11: I selected the Enable auto-shutdown and set the auto-shutdown time as 10:00 PM and Select the time Zone as (UTC + 2:00) Helsinki
-- Step 12: I reviewed the settings and created the virtual machine.
+### Step 1: Create an Azure Account
+- I created an Azure account at [portal.azure.com](https://portal.azure.com) using my university email.  
 
-After creating the virtual machine, I go to lab-robotics-ip and select setting(Configuration) than type ajit-world as DNS name lable and save it.
+### Step 2: Utilize Free Azure Credits
+- To get more credits in Azure, I used my university email to obtain free Azure credits.
 
-- Step 13: After that, I select lab-robotics and select connect and select Native SSH and copy the path that I downloaded the key.pam file.
-![Click on Native_SSH](image/Native_ssh.jpg)
+![Azure View after Login](image/available%20credit.png)
+
+### Step 3: Create a Resource Group
+- I created a new resource group in the Azure portal.
+
+### Step 4: Create a Virtual Machine
+- I created a new virtual machine in the Azure portal. (It may take some time to load.)
+
+### Step 5: Select Region and Operating System
+- I selected **North Europe** as the region.  
+- I chose **Ubuntu Server 24.04 LTS - x64 Gen2** as the operating system.
+
+### Step 6: Configure Virtual Machine Size
+- I selected the virtual machine size as **Standard_B2ls_v2** with the following specifications:  
+  - **2 vCPUs**  
+  - **4 GiB Memory**  
+  - **Cost:** $33.29/month
+
+### Step 7: Configure Network Settings
+- I selected the network configuration as **Public IP Address** and **Network Interface.**
+- I created a new username.
+
+### Step 8: Configure Storage Settings
+- I selected:  
+  - **OS Disk Type:** Standard SSD  
+  - **Storage Type:** Locally-redundant storage
+
+### Step 9: Assign Public IP Address
+- I selected the public IP address type as **Static.**
+- I created a new public IP address named **lab-robotics-ip.**
+
+### Step 10: Configure Inbound Ports
+- I selected the following inbound ports:  
+  - **HTTP (80)**  
+  - **HTTPS (443)**  
+  - **SSH (22)**
+
+### Step 11: Enable Auto-Shutdown
+- I enabled the auto-shutdown feature and configured it as follows:  
+  - **Shutdown Time:** 10:00 PM  
+  - **Time Zone:** (UTC + 2:00) Helsinki
+
+### Step 12: Review and Create the Virtual Machine
+- After reviewing the settings, I created the virtual machine.
+
+### Step 13: Configure DNS Name Label
+- After creating the virtual machine:  
+  - I navigated to **lab-robotics-ip > Settings (Configuration).**  
+  - I set the **DNS Name Label** as **ajit-world** and saved it.
+
+### Step 14: Connect to the Virtual Machine
+- I selected **lab-robotics > Connect > Native SSH** and copied the path to the downloaded `key.pem` file.
+
+![Click on Native SSH](image/Native_ssh.jpg)  
 ![Copy the URL](image/path_copy.jpg)
 
-- Step 14: I open the terminal and paste the URL given in SSH to VM with specified private key.
-![Successfully done in Termina ](image/terminal.jpg)
+### Step 15: Access the Virtual Machine via SSH
+- I opened the terminal and pasted the SSH URL with the specified private key.  
+
+![Successfully Connected in Terminal](image/terminal.jpg)
+
+---
 
 
 
