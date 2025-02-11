@@ -191,3 +191,161 @@ sudo chmod 770 /opt/projekti
 ![Screenshot 4](image/4.png)  
 
 ---
+
+
+
+
+
+# Linux Assignment:6 Managing Packages with APT
+
+## Objective
+By completing this assignment, We will:
+- Learn how to install, update, remove, and search for software using APT (Advanced Package Tool).
+- Understand how to manage repositories and resolve package dependencies.
+- Gain hands-on experience in troubleshooting package installation issues.
+
+---
+
+## Part 1: Understanding APT & System Updates
+
+### 1. Check your system’s APT version
+Run the following command to display the installed APT version:
+```bash
+apt --version
+```
+![Version](image/apt%20version.png)  
+
+### 2. Update the package list
+```bash
+sudo apt update
+```
+### Why is this important?
+- This command updates the local package index with the latest changes from the repositories. It ensures that your system knows about the latest available versions of packages.
+
+### 3. Upgrade installed packages
+```bash
+sudo apt upgrade -y
+```
+### Difference between update and upgrade:
+
+
+| Update|Upgrade | 
+| ---| --- | 
+| It refreshes the list of available packages and their versions.| It installs newer versions of the packages you have. |
+
+###  4. View pending updates(if any)
+```bash
+sudo apt list --upgradable
+```
+![apt upgradable](image/app%20list%20--up.png) 
+
+## Part 2: Installing & Managing Packages
+
+### 5. Search for a package using APT
+```bash
+apt search image editor
+```
+- I used Zim image editor as an example.
+
+### 6. View package details
+```bash
+apt show zim
+```
+![apt show](image/apt%20show%20zim.png) 
+
+### 7. Install a package
+```bash
+sudo apt install zim -y
+```
+### 8. Check installed package version
+```bash
+dpkg-query -1 | grep zim
+```
+![dpkg query](image/apt%20list-installed.png)
+
+## Part 3: Removing & Cleaning Packages
+
+### 9. Uninstall the package
+```bash
+sudo apt remove zim -y
+```
+![after remove](image/after%20remove%20installed%20file.png)
+
+### Is the package fully removed?
+- No, configuration files are still retained.
+
+### 10. Remove configuration files as well
+``` bash
+sudo apt purge zim -y
+```
+### What is the difference between remove and purge?
+| Remove|Purge | 
+| ---| --- | 
+| It  removes the package but keeps configuration files.| It removes the package along with its configuration files.|
+
+### 11. Remove package dependencies
+```bash
+sudo apt autoremove -y
+```
+### Why is this step important?
+- This removes unused dependencies that were installed automatically but are no longer needed, freeing up disk space.
+
+### 12. Clean up downloaded package files
+```bash 
+sudo apt clean
+```
+### What does this command do?
+- It removes cached package files (.deb files) from /var/cache/apt/archives/, freeing up disk space.
+
+## Part 4: Managing Repositories & Troubleshooting
+
+### 13. List all available repositories
+- while running 
+```bash 
+sudo cat /etc/apt/sources.list
+```
+It shows
+
+![cat](image/cat%20:etc:apt:sources.list.png)
+- Than I use this command
+```bash
+sudo cat /etc/apt/sources.list.d/ubuntu.sources
+```
+![cat](image/cat%20:etc:apt:sources.list.d:ubuntu.sources.png)
+
+### 14. Add a new repository
+```bash
+sudo add-apt-repository universe
+sudo add update
+```
+### What types of packages are found in the universe repository?
+- The universe repository contains community-maintained free and open-source software.
+### 15.  Simulate an installation failure and troubleshoot
+```bash
+sudo apt install fakepackage
+```
+### What error message do you get?
+ I get [ E: Unable to locate package fakepackage.]
+![fakepackage](image/sudo%20apt%20install%20fakepackage.png)
+
+### How would you troubleshoot this issue?
+
+- Check if the package name is correct.
+- Ensure the repository containing the package is enabled (sudo apt update).
+- Search for the package using apt search.
+
+## Bonus Challenge 
+
+### 1. Use apt-mark to hold and unhold a package
+```bash 
+sudo apt-mark hold tweak
+```
+![hole](image/sudo%20apt-mark%20hold%20tweak.png)
+### 2. Use apt-mark to unhold a package
+```bash
+sudo apt-mark unhold tweak
+```
+![unhold](image/sudo%20apt-mark%20unhold%20tweak.png)
+
+### Why would you want to hold a package?
+- Holding a package prevents it from being updated, which is useful if we want to keep a specific version of a package for compatibility or stability reasons.
