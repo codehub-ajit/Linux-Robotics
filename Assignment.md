@@ -197,6 +197,8 @@ sudo chmod 770 /opt/projekti
 
 
 # Linux Assignment:6 Managing Packages with APT
+**Date:** 2025-02-12  
+**Author:** Ajit G C (amk1005944@student.hamk.fi) 
 
 ## Objective
 By completing this assignment, We will:
