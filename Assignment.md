@@ -351,3 +351,57 @@ sudo apt-mark unhold tweak
 
 ### Why would you want to hold a package?
 - Holding a package prevents it from being updated, which is useful if we want to keep a specific version of a package for compatibility or stability reasons.
+
+
+
+
+# Assignment 5  
+**Date:** 2025-02-16
+**Author:** Ajit G C (amk1005944@student.hamk.fi)  
+## Task:  Automating Disk Space Monitoring with Cron
+
+### 1. Create the Bash Script (print.sh)
+- Create a script named print.sh that logs the size of the home directory and appends it to diskspace.txt.
+```bash
+#!/bin/bash
+
+# Get disk usage of /home/ajit-hub while excluding restricted files
+size=$(/usr/bin/du -s --exclude=/home/ajit-hub/ankit/* /home/ajit-hub | /usr/bi>
+
+# Get current date and time
+date=$(/bin/date "+%b %d %H:%M:%S %Z %Y")
+
+# Append the output to diskspace.txt
+echo "$size $date" >> /home/ajit-hub/diskspace.txt
+```
+### 2. Make the Script Executable
+``` bash
+sudo chmod -R +rX /home/ajit-hub/ankit
+```
+### 3. Edit the Crontab to Run the Script Every 12 Hours
+- It open crontab for Editing
+```bash
+crontab -e
+```
+- Add the following line to the end of the file
+```bash
+0 */12 * * * /bin/bash /home/ajit-hub/print.sh >> /home/ajit-hub/cronlog.txt 2>>
+```
+### 4. Save and Exit the Crontab and view the output
+```bash
+cat /home/ajit-hub/diskspace.txt 
+```
+#### Output
+![Output](image/cat%20:home:ajit-hub:diskspace.txt%20.png)
+
+### 5. Find the Maximum Disk Usage Entry Using awk
+```bash
+awk 'BEGIN {max=0} {if ($1 > max) {max=$1; line=$0}} END {print "Max=" max ", at " substr(line, index(line, $2)) "."}' /home/ajit-hub/diskspace.txt
+```
+#### Output
+![Maximum](image/maximum.png)
+
+
+
+
+
