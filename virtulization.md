@@ -201,7 +201,40 @@ docker run -p 8080:80 ajit-gc
 ![image of Docker Desktop](image/docker%20congo.png)
 
 
+## Part 5: Snaps for Self-Contained Applications
+1. What are snaps?
+- Snaps are containerized software packages that include all the dependencies required to run an application. They are designed to work across different Linux distributions.
+2. What is Snapcraft?
+- Snapcraft is the command-line tool used to create and publish Snaps.
 
+### Install Snapcraft
+```bash
+sudo snap install snapcraft --classic
+```
+### Verify Snapcraft installation
 
+    snapcraft --version
 
+![Version](image/snapcraft%20version.png)
 
+### Create a directory for Snap project
+    mkdir hello-snap
+    cd hello-snap
+- Create a simple Python script named hello.py
+    echo 'print("Hello, Snap!")' > hello.py
+
+###  Create a Snapcraft Configuration File
+- Initialize snapcraft
+    snapcraft init
+- Edit the snapcraft.yaml file
+    nano snapcraft.yaml
+
+![image inside nano](image/nano%20.png)
+
+### Build the Snap
+    snapcraft
+
+### Install the Snap
+    sudo snap install hello-snap_1.0_amd64.snap --dangerous
+### Run the Snap   
+    hello-snap.hello
