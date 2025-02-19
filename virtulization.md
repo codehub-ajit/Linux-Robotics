@@ -154,5 +154,54 @@ lxc delete ajit-container
 
 
 ## Part 4: Docker
+
 ### Installation
-- Screenshot of Docker installation.
+```bash
+sudo apt update
+sudo apt install docker.io
+```
+### Verify the installation
+```bash
+docker --version
+```
+- Screenshot of version
+![Docker version](image/docker%20version.png)
+
+### Making directory and create nano file 
+```bash
+mkdir myapp
+cd myapp
+echo "hello world" > index.html
+```
+- Screenshot of creating a directory and file
+![Create a directory and file](image/mkdir.png)
+
+### Build Docker
+```bash
+docker build -t ajit-gc .
+```
+- Screenshot of building a Docker image
+![Build a Docker image](image/docker%20build.png)
+
+### Run Docker
+```bash
+docker ps
+docker run -p 8080:80 ajit-gc
+```
+- Screenshot of running a Docker container
+![Run a Docker container](image/docker%20ps.png)
+
+### Install docker on Desktop to familirize with Docker
+
+- I installed Docker Desktop on my laptop and sign with my Github account to access the Docker Hub.
+![image of Docker Desktop](image/docor%20accout%20set-up.png)
+
+![image inside docker](image/docker%20search.png)
+
+![image of Docker Desktop](image/docker%20congo.png)
+
+
+
+
+
+
