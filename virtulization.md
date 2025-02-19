@@ -225,9 +225,13 @@ sudo snap install snapcraft --classic
 
 ###  Create a Snapcraft Configuration File
 - Initialize snapcraft
-    snapcraft init
+```bash
+snapcraft init
+```
 - Edit the snapcraft.yaml file
-    nano snapcraft.yaml
+```bash
+nano snapcraft.yaml
+```
 
 ![image inside nano](image/nano%20.png)
 
