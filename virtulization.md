@@ -23,11 +23,13 @@ Lightweight, isolated environments that share the host OS kernel but have their 
 ### **VMs vs Containers**
 
 - The difference between VMs and Containers in terms of Architecture, Resource Utilization and Isolation
-| VMs | Containers | 
-| ---| --- | 
-| It require a full OS for each instance | It share the host OS kernel|
-| It require more resources | It is more Lightweight and efficient|
-| It provide strong isolation since each VM has its own OS| It provide a lower level of isolation, it share the host OS kernel|
+
+| **Aspect**    | **VMs**                                          | **Containers**    |
+|----------------------|------------------------------------------------|------------------------------|
+| **Architecture**     | Requires a full OS for each instance            | Shares the host OS kernel      |
+| **Resource Utilization** | Requires more resources                        | More lightweight and efficient   |
+| **Isolation**        | Provides strong isolation since each VM has its own OS | Provides a lower level of isolation, as it shares the host OS kernel |
+
  
 
 ## Part 2: Multipass Implementation
@@ -326,6 +328,7 @@ parts:
 
 ### Build the Snap
 
+<<<<<<< HEAD
 ```bash
 snapcraft
 ```
@@ -346,3 +349,9 @@ my-snapcraft.hello
 
 Output
 ![Hello snap](image/output.png)
+=======
+### Install the Snap
+    sudo snap install hello-snap_1.0_amd64.snap --dangerous
+### Run the Snap   
+    hello-snap.hello
+>>>>>>> 59dd49273b378e98b086359a50438dc96c3f76ef
