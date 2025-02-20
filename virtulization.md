@@ -22,10 +22,11 @@
 
 ### **VMs vs Containers**
 - The difference between VMs and Containers in terms of Architecture, Resource Utilization and Isolation
-| **Aspect**            | **VMs**                                          | **Containers**                                |
-|----------------------|------------------------------------------------|----------------------------------------------|
-| **Architecture**     | Requires a full OS for each instance            | Shares the host OS kernel                    |
-| **Resource Utilization** | Requires more resources                        | More lightweight and efficient               |
+
+| **Aspect**    | **VMs**                                          | **Containers**    |
+|----------------------|------------------------------------------------|------------------------------|
+| **Architecture**     | Requires a full OS for each instance            | Shares the host OS kernel      |
+| **Resource Utilization** | Requires more resources                        | More lightweight and efficient   |
 | **Isolation**        | Provides strong isolation since each VM has its own OS | Provides a lower level of isolation, as it shares the host OS kernel |
 
  
