@@ -1,4 +1,4 @@
-# Assignment 7: # Linux Virtualization 
+# Assignment 7: Linux Virtualization 
 **Date:** 2025-02-19
 **Author:** Ajit G C (amk1005944@student.hamk.fi) 
 
@@ -349,9 +349,4 @@ my-snapcraft.hello
 
 Output
 ![Hello snap](image/output.png)
-=======
-### Install the Snap
-    sudo snap install hello-snap_1.0_amd64.snap --dangerous
-### Run the Snap   
-    hello-snap.hello
->>>>>>> 59dd49273b378e98b086359a50438dc96c3f76ef
+
