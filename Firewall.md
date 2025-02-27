@@ -95,16 +95,16 @@ sudo sysctl -p
 ```
 ![SYN Flood protecetion](image/SYN%20flood%20protection.png)
 
+
 #### Block Invalid Packets
 
-Invalid Pacets
-
+```bash
 Invalid packets include any incoming connections that don’t start with the SYN flag alone.
+```
 
 
 How UFW blocks invalid packets
-
-Add rules to block invalid packets in /etc/ufw/before.rules:
+- Add rules to block invalid packets in /etc/ufw/before.rules:
 
 ```bash
 sudo nano /etc/ufw/before.rules
